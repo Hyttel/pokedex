@@ -51,7 +51,7 @@ public class HomeController {
     }
 
     @PostMapping("/create")
-    public String createPokemon(@RequestParam("name") String name, @RequestParam("speed") int speed, @RequestParam("special_defence") int special_defence, @RequestParam("special_attack") int special_attack,) {
+    public String createPokemon(@RequestParam("name") String name, @RequestParam("speed") int speed, @RequestParam("special_defence") int special_defence, @RequestParam("special_attack") int special_attack) {
         Pokemon newPokemon = new Pokemon();
 
         pokemonRepository.addPokemon(newPokemon);
