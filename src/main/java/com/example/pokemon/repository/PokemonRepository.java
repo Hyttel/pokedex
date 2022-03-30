@@ -59,4 +59,44 @@ public class PokemonRepository {
         return pokemonList;
     }
 
+    public void addPokemon(Pokemon pokemon) {
+        //connect
+        getConnection();
+        try {
+            //prep Statement
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ;pokemon(name, speed) VALUES (?, ?)");
+
+            //set Attributer
+            preparedStatement.setString(1, pokemon.name);
+            preparedStatement.setInt(2, pokemon.speed);
+
+            //execute statement
+            preparedStatement.executeUpdate();
+        } catch (SQLException sqlException) {
+            System.out.println("ERROR");
+            sqlException.printStackTrace();
+        }
+    }
+
+    public void deletePokemonByID(int id) {
+        //Connect
+        getConnection();
+
+        try{
+            //Create preparedStatement
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM pokemon WHERE pokedex_number = ?");
+
+            //set parameter
+            preparedStatement.setInt(1, id);
+
+            //execute statement
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException sqlException) {
+            System.out.println("ERROR");
+            sqlException.printStackTrace();
+        }
+
+    }
+
 }
