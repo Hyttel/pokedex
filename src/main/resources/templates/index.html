@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div>
+    <button style="width: 150px; height: 50px; background: deeppink">
+        <a href="/thymeleaf" style="color: black">Thymeleaf stuff</a>
+    </button>
+    <button style="width: 150px; height: 50px; background: deeppink">
+        <a href="/formtest" style="color: black">Form test</a>
+    </button>
+    <button style="width: 150px; height: 50px; background: deeppink">
+        <a href="/create" style="color: black">Create Pokemon</a>
+    </button>
+    <h1>Produkt liste</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                speed
+            </th>
+            <th>
+                special defence
+            </th>
+            <th>
+                special attack
+            </th>
+            <th>
+                defence
+            </th>
+            <th>
+                attack
+            </th>
+            <th>
+                hp
+            </th>
+            <th>
+                primary type
+            </th>
+            <th>
+                secondary type
+            </th>
+            <th>Slet?</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pokemons : ${pokemon}">
+            <td style="color: black; border: 1px solid black" th:text="${pokemons.id}">
+            </td>
+            <td style="color: black; border: 1px solid black" th:text="${pokemons.name}">
+            </td>
+            <td style="color: black; border: 1px solid black" th:text="${pokemons.speed}">
+            </td>
+            <td style="color: black; border: 1px solid black" th:text="${pokemons.special_defence}">
+            </td>
+            <td style="color: black; border: 1px solid black" th:text="${pokemons.special_attack}">
+            </td>
+            <td style="color: black; border: 1px solid black" th:text="${pokemons.defence}">
+            </td>
+            <td style="color: black; border: 1px solid black" th:text="${pokemons.attack}">
+            </td>
+            <td style="color: black; border: 1px solid black" th:text="${pokemons.hp}">
+            </td>
+            <td style="color: black; border: 1px solid black" th:text="${pokemons.primary_type}">
+            </td>
+            <td style="color: black; border: 1px solid black" th:text="${pokemons.secondary_type}">
+            </td>
+            <td>
+                <a style="color: red; border: 1px solid black" th:href="@{'/delete/' + ${pokemons.id}}">Delete Pokemon</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
